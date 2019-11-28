@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "git commit -a -m 'prepublish commit' && ./script1.sh && npx lerna publish --registry http://localhost:4873"
+    "release": "./script1.sh && npx lerna publish --registry http://localhost:4873"
   },
   "keywords": [],
   "author": "",
