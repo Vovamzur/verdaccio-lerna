@@ -1,4 +1,4 @@
 module.exports = () => {
     console.log('package2')
-    console.log('version 1.2.5')
+    console.log('version 1.2.6')
 }

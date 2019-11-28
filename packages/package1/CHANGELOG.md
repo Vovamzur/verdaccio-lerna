@@ -1,3 +1,3 @@
 
-## [] - 2019-11-28
-    Version 1.2.5
+## [Unreleased]
+    Version 1.2.6
