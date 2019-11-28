@@ -8,7 +8,7 @@ refreshLogs() {
         [[ $line =~ \[Unreleased\]$ ]] &&
         current_date=`date '+%Y-%m-%d'` &&
         version_string=`npm version patch | cut -c 2-` &&
-        version_string="[$version_string]"
+        version_string="/[$version_string/]"
         line_with_date="## ${version_string} - ${current_date}" &&
         line=${line/\[/\\[} &&
         line=${line/\]/\\]} &&
