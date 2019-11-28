@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "npm run commit && npm version patch && ./script1.sh",
-    "commit": "git add . && git commit -m 'update new verions' "
+    "commit": "git add . && git commit -m 'update new verions' ",
+    "release": "npm run prepublishOnly && npx lerna publish --registry http://localhost:4873"
   },
   "keywords": [],
   "author": "",
