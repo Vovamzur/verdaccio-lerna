@@ -1,3 +1,4 @@
+```
 npm install --global verdaccio
 npm set registry http://localhost:4873/
 NPM_CONFIG_REGISTRY=http://localhost:4873 npm i
@@ -18,10 +19,11 @@ npm publish --registry http://localhost:4873
 cd ..
 npx lerna init
 npm publish --registry http://localhost:4873
+```
 
 add script to package.json
     "prepublishOnly": "npm version patch && echo 'test' >> file.txt"
-    
+
 create ./script.sh
 chmod +x ./script.sh
     "prepublishOnly": "./script.sh && npm version patch && echo 'test' >> file.txt"
