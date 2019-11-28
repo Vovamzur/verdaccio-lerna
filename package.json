@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "npm version patch && echo 'test' >> file.txt"
+    "prepublishOnly": "npm version patch && ./script.sh && echo 'test' >> file.txt"
   },
   "keywords": [],
   "author": "",

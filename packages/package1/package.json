@@ -1,0 +1,13 @@
+{
+  "name": "package1",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm version patch && echo 'package1' >> ./../file.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
