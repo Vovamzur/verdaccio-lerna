@@ -4,6 +4,8 @@ npm set registry http://localhost:4873/
 NPM_CONFIG_REGISTRY=http://localhost:4873 npm i
 npm adduser --registry http://localhost:4873
 
+verdaccio
+
 mkdir package1
 cd package1
 npm init -y
