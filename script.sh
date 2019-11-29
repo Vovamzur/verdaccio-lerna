@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[[ ! -z `git status --porcelain` ]] && echo "commit changes before publishing" && exit 1
+
 echo '--------------------- Check all CHANGELOG ---------------------' &&
 
 refreshLogs() {
