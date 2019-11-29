@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "printenv npm_package_version >> .env",
-    "prepublish": "./prepublishscript.sh"
+    "postversion": "/prepublishscript.sh && printenv npm_package_version >> .env"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "gitHead": "9e810774c60b12cb91baef670fbe780c93a5d607"
+  "gitHead": "b01034c18015651cded1334481e9ebfe208eac77"
 }
