@@ -31,4 +31,4 @@ for filename in `git diff --name-only`;do
     git add $filename
 done &&
 git status &&
-[[ ! -z `git diff --exit-code` ]] && git commit -m "add dates of versions' releases at changelogs before publish"
+[[ ! -z `git diff --exit-code` ]] && git commit -m "add dates of versions' releases at changelogs before publish" || exit 0
