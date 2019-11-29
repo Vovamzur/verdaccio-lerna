@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "cat packages/*/.env >> file.txt",
-    "release": "./script.sh -x && npx lerna publish --registry http://localhost:4873"
+    "prepublishOnly": "./prepublishScript.sh"
   },
   "keywords": [],
   "author": "",
