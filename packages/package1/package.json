@@ -1,11 +1,11 @@
 {
   "name": "package1",
-  "version": "1.5.0",
+  "version": "1.4.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "printenv >> .env",
+    "prepublishOnly": "printenv npm_package_version >> .env",
     "prepublish": "./prepublishscript.sh"
   },
   "keywords": [],
