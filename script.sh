@@ -3,25 +3,30 @@
 echo '--------------------- Check all CHANGELOG ---------------------' &&
 
 refreshLogs() {
-    cat $1 | while read line 
-    do
-        [[ $line =~ \[Unreleased\]$ ]] &&
-        current_date=`date '+%Y-%m-%d'` &&
-        version_string=`npm version patch | cut -c 2-` &&
-        version_string="/[$version_string/]"
-        line_with_date="## ${version_string} - ${current_date}" &&
-        line=${line/\[/\\[} &&
-        line=${line/\]/\\]} &&
-        sed -i "s/^.*$line.*$/$line_with_date/g" $1
-    done
+    if grep -q 'Unreleased' "$1"; then
+        path=`dirname $1` &&
+        while read line; do
+            [[ $line =~ \[Unreleased\]$ ]] &&
+            current_date=`date '+%Y-%m-%d'` &&
+            current_version=`node -p "require('$path/package.json').version"` &&
+            current_version=`echo "${current_version%.*}.$((${current_version##*.}+1))"` &&
+            version_string="\[$current_version\]" &&
+            line_with_date="## ${version_string} - ${current_date}" &&
+            line=${line/\[/\\[} &&
+            line=${line/\]/\\]} &&
+            sed -i "s/^.*$line.*$/$line_with_date/g" $1
+        done < $1
+    fi
 }
 
 repositoryFolder=`git rev-parse --show-toplevel` &&
-find $(pwd)/ -type f -path \*/CHANGELOG.md | grep -v node_modules | sort | uniq | while read path 
+for path in `find $(pwd)/ -type f -path \*/CHANGELOG.md | grep -v node_modules | uniq` 
 do
-    echo -e " \033[0;36m$path\033[0m" &&
-    refreshLogs $path
-done
-# git add \*/CHANGELOG.md &&
-# git commit -m "add dates of versions' releases at changelogs" &&
-# git push
+    refreshLogs $path &&
+    echo -e " \033[0;36m$path\033[0m"
+done &&
+for filename in `git diff --name-only`;do
+    git add $filename
+done &&
+git status &&
+git commit -m "add dates of versions' releases at changelogs before publish"
