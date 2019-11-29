@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postversion": "/prepublishscript.sh && printenv npm_package_version >> .env"
+    "postversion": "./prepublishscript.sh && printenv npm_package_version >> .env"
   },
   "keywords": [],
   "author": "",
