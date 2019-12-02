@@ -17,6 +17,7 @@ refreshLogs() {
     done
 }
 
+repositoryFolder=`git rev-parse --show-toplevel` &&
 repository="ubjs"
 rm -rf ./$repository &&
 git clone https://git-pub.intecracy.com/unitybase/$repository.git &&
