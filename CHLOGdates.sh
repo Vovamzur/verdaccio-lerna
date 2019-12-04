@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# refresh all CHNAGELOG files for some repository adding release dates
+# This script update release dates in all CHNAGELOG files
 
 refreshLogs() {
     git blame $1 | while read line 
@@ -17,19 +17,17 @@ refreshLogs() {
     done
 }
 
-repositoryFolder=`git rev-parse --show-toplevel` &&
-repository="ubjs"
-rm -rf ./$repository &&
-git clone https://git-pub.intecracy.com/unitybase/$repository.git &&
-cd $repository &&
-find $(pwd)/ -type f -path \*/CHANGELOG.md | sort | uniq | while read path 
+packagesDirectories=`node -p "require('./lerna.json').packages"` &&
+packagesDirectories=`echo $packagesDirectories | sed "s/[]['',]//g"` &&
+for packagePath in $packagesDirectories
 do
-    echo -e " \033[0;36m$path\033[0m"
-    refreshLogs $path
-done
+    for path in `find $(pwd)/$packagePath -type f -path */CHANGELOG.md` 
+    do
+        refreshLogs $path &&
+        echo -e " \033[0;36m$path\033[0m"
+    done
+done &&
 git add . &&
 git commit -m "add dates of versions' releases at changelogs" &&
-echo -e "\n \033[1;36mGit status\033[1;33m" &&
-git status 
-# &&
-# git push --set-upstream origin update-changelogs
+git push
+

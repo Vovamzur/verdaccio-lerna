@@ -1,3 +1,3 @@
 
 ## [Unreleased]
-    Version 1.17.0
+    Version 1.18.0
