@@ -1,6 +1,6 @@
 {
   "name": "package1",
-  "version": "1.18.1",
+  "version": "1.18.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,5 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "gitHead": "fe2384b396bd521782ce901c67ea4d2f3ba4526f"
+  "gitHead": "5058d095cf4b1c343b9610e36b04f199852473a8"
 }
