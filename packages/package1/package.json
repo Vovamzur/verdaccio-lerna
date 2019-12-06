@@ -8,6 +8,5 @@
     "version": "node ./../../tools/prepublish.js `pwd`"
   },
   "author": "",
-  "license": "ISC",
-  "gitHead": "d52a87d285d671e0fb2eb3619170eda8f05bec75"
+  "license": "ISC"
 }
