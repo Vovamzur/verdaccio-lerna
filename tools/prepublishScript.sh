@@ -19,7 +19,7 @@ echo '--------------------- Check all CHANGELOG ---------------------' &&
 
 unreleasedLine="## \[Ureleased\]"
 unreleasedSection="$unreleasedLine\n\n"
-conditionalSubstr="$unreleasedLine\n###.*\n"
+conditionalSubstr="$unreleasedLine\n###*\n"
 
 refreshLogs() {
     if grep -q "$conditionalSubstr" "$1"; then
@@ -43,6 +43,3 @@ do
         echo -e " \033[0;36m$path\033[0m"
     done 
 done
-if [[ ! -z `git diff --exit-code` ]]; then
-    git commit -m "add dates of versions' releases at changelogs before publish"
-fi
