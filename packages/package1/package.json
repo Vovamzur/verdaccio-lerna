@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "./../../tools/script.sh `pwd`"
+    "version": "node './../../tools/prepublish.js `pwd`"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "gitHead": "cf78a437608d71d2a9b52264871f26de20b61db3"
 }
