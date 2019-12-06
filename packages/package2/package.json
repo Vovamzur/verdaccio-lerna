@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postversion": "./../../tools/script.sh ./",
-    "version": "./../../tools/getVersion.sh ./"
+    "version": "./../../tools/script.sh `pwd`"
   },
   "keywords": [],
   "author": "",
