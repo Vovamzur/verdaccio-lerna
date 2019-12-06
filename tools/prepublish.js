@@ -2,8 +2,7 @@ const { readFileSync, writeFileSync} = require('fs')
 const { resolve } = require('path')
 const { execSync } = require('child_process')
 
-const packagePath = process.argv[2]
-if (!packagePath) return 
+const packagePath = execSync('pwd').toString()
 const { version } = require(resolve(packagePath, 'package.json'))
 const filePath = resolve(packagePath, './CHANGELOG.md')
 const unreleasedLine = '## [Unreleased]'
