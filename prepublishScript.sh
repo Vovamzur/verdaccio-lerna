@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 
-# This script is used to change "unrealesed" sections in CHNAGELOG to current version and date in prepublishOnly hook
-# add "prepublishOnly": "./tools/prepublishScript.sh" to package.json
+# This script is used to change "unrealesed" sections in CHNAGELOG to current version and current date in prepublishOnly script
+#
+# add  to root package.json 
+# {
+#     ...
+#     "scripts" : {
+#         ...
+#         "prepublishOnly": "./tools/prepublishScript.sh"
+#     }
+# }
+#
+# example:
+#   ## [Unreleased]  =>  ## [1.17.0] - 2019-12-02
+
 
 echo '--------------------- Check all CHANGELOG ---------------------' &&
 
@@ -14,6 +26,7 @@ refreshLogs() {
                 current_version=`node -p "require('$path/package.json').version"`
                 local version_string="\[$current_version\]"
                 local line_with_date="## ${version_string} - ${current_date}"
+                line_with_date="## [Unreleased]\n\n${line_with_date}"
                 line=${line/\[/\\[}
                 line=${line/\]/\\]}
                 sed -i "s/^.*$line.*$/$line_with_date/g" $1 &&
