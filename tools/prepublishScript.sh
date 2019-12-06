@@ -22,7 +22,7 @@ unreleasedSection="$unreleasedLine\n\n"
 conditionalSubstr="$unreleasedLine\n###.*\n"
 
 refreshLogs() {
-    if grep -q $conditionalSubstr $1; then
+    if grep -q "$conditionalSubstr" "$1"; then
         path=`dirname $1`
         local current_date=`date '+%Y-%m-%d'`
         local current_version=`node -p "require('$path/package.json').version"`
