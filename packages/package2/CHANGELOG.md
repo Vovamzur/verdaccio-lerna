@@ -1,5 +1,7 @@
 
 ## [Unreleased]
+
+## [1.3.7] - 2019-12-06
 #### sddvlkn
     ;SLVMDLKFB
 
