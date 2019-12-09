@@ -18,7 +18,6 @@
 echo '--------------------- Check all CHANGELOG ---------------------' &&
 
 unreleasedLine="## \[Unreleased\]"
-unreleasedSection="$unreleasedLine\n\n"
 
 regex="$unreleasedLine
 ###.*"
@@ -29,7 +28,7 @@ refreshLogs() {
         local current_date=`date '+%Y-%m-%d'`
         local current_version=`node -p "require('$path/package.json').version"`
         local version_string="\[$current_version\]"
-        local textToReplace="$unreleasedSection## \[${current_version}\] - ${current_date}"
+        local textToReplace="$unreleasedLine\n\n## \[${current_version}\] - ${current_date}"
         sed -i "s/^.*$unreleasedLine.*$/$textToReplace/g" $1 && 
         git add $1
     fi
