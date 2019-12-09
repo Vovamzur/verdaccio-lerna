@@ -1,6 +1,10 @@
 
 ## [Unreleased]
 
+## [1.4.4] - 2019-12-09
+### CDICHS;DC
+    'VFN'FBV
+    
 ## [1.4.3] - 2019-12-09
 ### Added
     hello world
