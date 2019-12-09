@@ -29,3 +29,8 @@ add script to package.json
 create ./script.sh
 chmod +x ./script.sh
     "prepublishOnly": "./script.sh && npm version patch && echo 'test' >> file.txt"
+
+```
+npm set registry https://registry.npmjs.org/
+npm set registry http://localhost:4873
+```
