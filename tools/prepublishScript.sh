@@ -17,12 +17,14 @@
 
 echo '--------------------- Check all CHANGELOG ---------------------' &&
 
-unreleasedLine="## \[Ureleased\]"
+unreleasedLine="## \[Unreleased\]"
 unreleasedSection="$unreleasedLine\n\n"
-conditionalSubstr="$unreleasedLine\n###*\n"
+
+regex="$unreleasedLinen
+###.*"
 
 refreshLogs() {
-    if grep -q "$conditionalSubstr" "$1"; then
+    if [[ `cat $1` =~ $regex ]]; then
         path=`dirname $1`
         local current_date=`date '+%Y-%m-%d'`
         local current_version=`node -p "require('$path/package.json').version"`
