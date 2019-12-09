@@ -1,5 +1,7 @@
 
 ## [Unreleased]
+
+## [1.4.4] - 2019-12-09
 ### CDICHS;DC
     'VFN'FBV
     
