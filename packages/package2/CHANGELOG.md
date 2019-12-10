@@ -1,7 +1,5 @@
 
 ## [Unreleased]
-
-## [1.2.3] - 2019-12-10
 ### dlvkihad
     ;dvlmadf
 
