@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "node ./../../tools/prepublish.js && git add CHANGELOG.md"
+    "version": "update-changelog && git add CHANGELOG.md"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "gitHead": "a9a12a8043454ad2bae3fb5180549829be05d19e"
+  "gitHead": "a9a12a8043454ad2bae3fb5180549829be05d19e",
+  "devDependencies": {
+    "update-changelog-package": "^1.0.0"
+  }
 }
