@@ -19,11 +19,12 @@ echo '--------------------- Check all CHANGELOG ---------------------' &&
 
 unreleasedLine="## \[Unreleased\]"
 
+# check if next line is non-empty because every CHAHNGELOG has empty unrealesed setction on start
 regex="$unreleasedLine
-###.*"
+.+"
 
 refreshLogs() {
-    if [[ `cat $1` =~ $regex ]]; then
+    if [[ `cat $1` =~ "$regex"$ ]]; then
         local path=`dirname $1`
         local current_date=`date '+%Y-%m-%d'`
         local current_version=`node -p "require('$path/package.json').version"`
