@@ -1,5 +1,7 @@
 
 ## [Unreleased]
+
+## [1.3.3] - 2019-12-10
 ### vdfvi
     dlvm
 
