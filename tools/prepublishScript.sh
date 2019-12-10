@@ -21,7 +21,7 @@ unreleasedLine="## \[Unreleased\]"
 
 # check if next line is non-empty because every CHAHNGELOG has empty unrealesed setction on start
 regex="$unreleasedLine
-.+"
+###*"
 
 refreshLogs() {
     if [[ `cat $1` =~ "$regex"$ ]]; then

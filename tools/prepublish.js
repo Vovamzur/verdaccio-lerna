@@ -1,25 +1,16 @@
-const { readFileSync, writeFileSync} = require('fs')
-const { resolve } = require('path')
-const { execSync } = require('child_process')
+const { readFileSync, writeFileSync } = require('fs')
 
-const packagePath = process.cwd()
-const { version } = require(resolve(packagePath, 'package.json'))
-const filePath = resolve(packagePath, 'CHANGELOG.md')
+const filename = 'CHANGELOG.md'
+const version = process.env.npm_package_version;
 const unreleasedLine = '## [Unreleased]'
 const unreleasedSection = `${unreleasedLine}\n\n`
-const fileLines = readFileSync(filePath, 'utf-8').split('\n')
-let doGitAdd = false   
+const fileLines = readFileSync(filename).split('\n')
 const newFileLines = fileLines.map((line, index) => {
-    if (line === unreleasedLine && fileLines[index+1] !== '') {
-        doGitAdd = true
+    if (line === unreleasedLine && fileLines[index + 1] !== '') {
         const currentDateInFormat = new Date().toISOString().slice(0, 10)
         const lineToReplace = `${unreleasedSection}## [${version}] - ${currentDateInFormat}`
         return lineToReplace
     }
     return line
 })
-writeFileSync(filePath, newFileLines.join('\n'))
-
-if (doGitAdd) {
-    execSync(`git add ${filePath}`)
-}
+writeFileSync(filename, newFileLines.join('\n'))
