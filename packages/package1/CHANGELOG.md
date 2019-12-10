@@ -1,5 +1,7 @@
 
 ## [Unreleased]
+
+## [2.0.2] - 2019-12-10
 ### slcksdc
     ;fl
     
